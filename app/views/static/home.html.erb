@@ -3,3 +3,43 @@
 <p>
   This is the home page for the Open Parking Cologne sample application.
 </p>
+<div class="container">
+    <div class="row">
+        <div class="span4">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <% @data["fieldAliases"].each do |field| %>
+                        <% if ["Parkhaus", "Kapazit\u00e4t", "TENDENZ"].include? field[1] %>
+                          <td> <%= field[1].capitalize  %> </td>
+                        <% end %>
+                      <% end %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @data["features"].each do |spot| %>
+                    <tr>
+                        <% spot["attributes"].each do |attribute| %>
+
+                            <% if attribute[0] == "PARKHAUS"%>
+                                <td><%= attribute[1] %></td>
+                            <% end %>
+                            <% if attribute[0] == "KAPAZITAET"%>
+                                <td class="<%= attribute[1].to_i < 2 ? 'danger' : 'success' %>"><%= attribute[1] %></td>
+                            <% end %>
+                            <% if attribute[0] == "TENDENZ"%>
+                                <td><%= attribute[1] %></td>
+                            <% end %>
+                              
+                            
+                        <% end %> 
+                    </tr>
+                    <% end %> 
+                </tbody>
+            </table>
+        </div>
+        <div class="span8">
+            MAP
+        </div>
+    </div>
+</div>

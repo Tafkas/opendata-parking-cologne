@@ -3,14 +3,13 @@ require 'spec_helper'
 describe "Static pages" do
 
   describe "Home page" do
-
-    it "should have the content 'Open Parking'" do
-      visit '/static/home'
+    before { visit root_path }
+    
+    it "should have the h1 'Open Parking'" do
       expect(page).to have_content('Open Parking')
     end
     
     it "should have the right title 'Open Parking Cologne'" do
-      visit '/static/home'
       expect(page).to have_title('Open Parking Cologne')
       
     end
@@ -18,16 +17,15 @@ describe "Static pages" do
   end
   
   describe "About page" do
-    it "should have the content 'About'" do
-      visit '/static/about'
-      expect(page).to have_content('about')
+    before { about_path }
+
+      it "should have the h1 'About Us'" do
+        expect(page).to have_content('About')
+      end
+
+      it "should have the title 'About'" do
+        expect(page).to have_title("About Open Parking Cologne")
+      end
     end
-    
-    it "should have the right title 'About Open Parking Cologne'" do
-      visit '/static/about'
-      expect(page).to have_title('About Open Parking Cologne')
-      
-    end
-  end
   
 end
