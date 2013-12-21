@@ -6,8 +6,9 @@ class StaticController < ApplicationController
     @data = JSON.parse(resp.body)
     
     @hash = Gmaps4rails.build_markers(@data["features"]) do |spots, marker|
-      marker.lat spots["geometry"]["y"].to_f
-      marker.lng spots["geometry"]["x"].to_f
+        marker.lat spots["geometry"]["y"].to_f
+        marker.lng spots["geometry"]["x"].to_f
+      puts @hash
     end
   end
 
