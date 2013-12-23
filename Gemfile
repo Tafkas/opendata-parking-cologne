@@ -18,6 +18,9 @@ end
 # Create a Google Map with overlays
 gem 'gmaps4rails'
 
+# Use Font Awesome
+gem "font-awesome-rails"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '2.3.2.0'
